@@ -1,0 +1,65 @@
+---
+title: Docker和Virtualbox的冲突
+description: Windows下Docker和Oracle VM VirtualBox的冲突
+slug: point_1
+date: 2023-10-15 22:13:00+0800
+image: DockerVbox.png
+categories:
+    - techStudy
+tags:
+    - VirtualBox
+    - computer
+    - docker
+    - point
+#weight: 1       # You can add weight to some posts to override the default sorting (date descending)
+comments: true
+
+#license: flase
+#math: true
+#toc: true
+#style: 
+#keywords:
+#readingTime:
+links:
+  - title: Windows10无法完全关闭Hyper-V导致VirtualBox 虚拟机无法启动
+    description: 之前这个问题经常遇到，之前是研究Hyper-V遇到的，发现Virtual Box跟Hyper-V有冲突，最近学习Docker技术，安装了Docker又不打开Virtual Box了，因为Docker开发环境会强制开启Hyper-V，下面我就来说说解决方案。
+    website: https://www.quchao.net/Windows10-Hyper-V-VirtualBox.html
+    image: https://www.quchao.net/favicon.ico
+---
+
+# 问题
+
+在使用VirtualBox的时候，发现无法启动所有虚拟机时报错。
+
+# 原因
+
+安装了Docker，Docker开发环境会强制开启Hyper-V，导致VirtualBox无法启动。
+
+# 解决方案
+打开"开始"菜单，搜索"程序和功能",选择"启用或关闭 Windows功能"，在列表中找到"Hyper-V"把前面的勾选取消并确定。
+这个时候已经开始卸载，卸载完毕重启电脑即可。
+
+![1](1.png)
+![2](2.png)
+
+如果还是不行那就用命令行再进行关闭。
+以管理员身份运行命令提示符
+执行命令
+
+```bash
+bcdedit /set hypervisorlaunchtype off
+```
+
+重启，运行Virtual Box即可
+
+
+# 恢复
+如果想要恢复hyper启动，
+
+```bash
+bcdedit / set hypervisorlaunchtype autok
+```
+
+# 一劳永逸
+
+windows上安装docker时，选择wsl2 instead of HyperV，装在wsl2上就完了

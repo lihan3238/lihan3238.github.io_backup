@@ -1,0 +1,50 @@
+# Configure main menu and social menu
+#[[main]]
+#identifier = "home"
+#weight = -10
+#name = "Home"
+#url = "/"
+#[main.params]
+#icon = "home"
+#newtab = false
+
+[[social]]
+identifier = "github"
+name = "GitHub"
+url = "https://github.com/lihan3238"
+
+[social.params]
+icon = "brand-github"
+
+#[[social]]
+#identifier = "twitter"
+#name = "Twitter"
+#url = "https://twitter.com"
+
+#[social.params]
+#icon = "brand-twitter"
+
+[[social]]
+identifier = "mail"
+name = "Mail"
+url = "mailto:lihan323830@gmail.com"
+
+[social.params]
+icon = "mail"
+
+[[social]]
+identifier = "rss"
+name = "Rss"
+url = "/index.xml"
+
+[social.params]
+icon = "rss"
+
+[[social]]
+identifier = "support"
+name = "Support"
+url = "https://lihan3238.github.io/p/support_lihan"
+
+[social.params]
+icon = "coin"
+

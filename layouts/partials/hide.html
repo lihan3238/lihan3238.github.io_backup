@@ -1,0 +1,15 @@
+<script>
+    var OriginTitile = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            document.title = '你看不见小寒😎...看不见...看不见...';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '小寒还是被发现了😭';
+            titleTime = setTimeout(function () {
+                document.title = OriginTitile;
+            }, 2000);
+        }
+    });
+</script>
